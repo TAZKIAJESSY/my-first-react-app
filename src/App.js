@@ -1,5 +1,5 @@
-import Title from "./components/Title";
-import Pokemon from "./components/pokemon";
+import Title from "./components/title";
+import Pokemon from "./components/pokemon/pokemon";
 import "./App.css";
 
 const all_pokemon = [
@@ -35,25 +35,24 @@ const all_pokemon = [
 
 function App() {
   return (
-    <div className="App">
-      <main>
-        <Title content="Some Simple Title" />
-        {/* TODO map over the pokemon here */}
+    <div className="container">
+      <Title content="Pokemon Details" />
 
-        {all_pokemon.map((poke) => {
+      <div className="row">
+        {all_pokemon.map((Poke) => {
           return (
-            <Pokemon
-              name={poke.name}
-              weight={poke.weight}
-              awesome={poke.awesome}
-              terrifying={poke.terrifying}
-              abilities={poke.abilities}
-            />
+            <div className="col-lg-3">
+              <Pokemon
+                name={Poke.name}
+                weight={Poke.weight}
+                awesome={Poke.awesome}
+                terrifying={Poke.terrifying}
+                abilities={Poke.abilities}
+              />
+            </div>
           );
         })}
-
-        <all_pokemon />
-      </main>
+      </div>
     </div>
   );
 }
